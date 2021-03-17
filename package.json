@@ -1,0 +1,34 @@
+{
+	"name": "divisionbd",
+	"version": "1.0.0",
+	"description": "BD all division, district, upozila etc",
+	"main": "./dist/index.js",
+	"types": "dist",
+	"files": [
+		"dist/**/*"
+	],
+	"scripts": {
+		"test": "echo \"Error: no test specified\"",
+		"prebuild": "rm -rf dist",
+		"build": "tsc",
+		"format": "prettier --write \"src/**/*.ts\""
+	},
+	"devDependencies": {
+		"prettier": "^2.2.1",
+		"typescript": "^4.2.3"
+	},
+	"author": "MD. Masbha Uddin",
+	"license": "UNLICENSED",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/masbhauddinsifat/divisionbd.git"
+	},
+	"keywords": [
+		"BD All Division",
+		"BD All District"
+	],
+	"bugs": {
+		"url": "https://github.com/masbhauddinsifat/divisionbd/issues"
+	},
+	"homepage": "https://github.com/masbhauddinsifat/divisionbd#readme"
+}
