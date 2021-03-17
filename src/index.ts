@@ -12,11 +12,15 @@ export const getDivision = (): Division[] => {
 };
 
 export const getDistrict = (divisionName: string): District[] => {
-	const resqestedDistrict = country.division.find((divi) => {
-		if (divi.name.toLowerCase() === divisionName.toLowerCase()) {
-			return divi;
-		}
-	});
+	if (typeof divisionName === 'string') {
+		const resqestedDistrict = country.division.find((divi) => {
+			if (divi.name.toLowerCase() === divisionName.toLowerCase()) {
+				return divi;
+			}
+		});
 
-	return resqestedDistrict ? resqestedDistrict.district : [];
+		return resqestedDistrict ? resqestedDistrict.district : [];
+	} else {
+		throw new Error('divisionName should be a string');
+	}
 };
