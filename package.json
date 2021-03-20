@@ -1,6 +1,6 @@
 {
 	"name": "divisionbd",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "BD all division, district, upozila etc",
 	"main": "./dist/index.js",
 	"types": "dist",
