@@ -1,6 +1,6 @@
 import { Division } from './model/division.model';
 import { country } from './country.data';
-import { District } from './model/district.model';
+import { District, DistrictWithUpozila } from './model/district.model';
 
 export const getDivision = (): Division[] => {
 	const divisions: Division[] = [];
@@ -12,6 +12,45 @@ export const getDivision = (): Division[] => {
 };
 
 export const getDistrict = (divisionName: string): District[] => {
+	const districts = getDistrictWithUpozila(divisionName);
+
+	if (districts.length > 0) {
+		const newDistricts: District[] = [];
+		districts.forEach((district) => {
+			newDistricts.push({
+				name: district.name,
+				banglaName: district.banglaName,
+			});
+		});
+		return newDistricts;
+	} else {
+		return districts;
+	}
+};
+
+export const getUpozila = (divisionName: string, districtName: string) => {
+	const districts = getDistrictWithUpozila(divisionName);
+
+	if (districts.length > 0) {
+		if (typeof districtName === 'string') {
+			const newDistrict = districts.find((district) => {
+				if (district.name.toLowerCase() === districtName.toLowerCase()) {
+					return district;
+				}
+			});
+
+			return newDistrict ? newDistrict.upozila : [];
+		} else {
+			throw new Error('districtName should be a string');
+		}
+	} else {
+		return districts;
+	}
+};
+
+const getDistrictWithUpozila = (
+	divisionName: string
+): DistrictWithUpozila[] => {
 	if (typeof divisionName === 'string') {
 		const resqestedDistrict = country.division.find((divi) => {
 			if (divi.name.toLowerCase() === divisionName.toLowerCase()) {
