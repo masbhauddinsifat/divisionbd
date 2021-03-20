@@ -2,7 +2,7 @@
 
 ## Description
 
-The Divisionbd is a `npm package` that helps you to develop your **Frontend Applications** where you will need All Divison and All District of _Bangladesh_ without any **API Call**. You can also use the package in your **Backend Applications** (if _Require_). This package will support **JavaScript** and **TypeScript** both.
+The Divisionbd is a `npm package` that helps you to develop your **Frontend Applications** where you will need All Divison, All District and All Upozila (maybe) of _Bangladesh_ without any **API Call**. You can also use the package in your **Backend Applications** (if _Require_). This package will support **JavaScript** and **TypeScript** both.
 
 ## Installation
 
@@ -20,44 +20,46 @@ const myPackage = require('divisionbd');
 
 const allDivision = myPackage.getDivision();
 const allDistrict = myPackage.getDistrict('dhaka');
+const allUpozila = myPackage.getUpozila('dhaka', 'madaripur');
 
 
 // or Js destructuring import
-const { getDivision, getDistrict } = require('divisionbd');
+const { getDivision, getDistrict, getUpozila } = require('divisionbd');
 
 const allDivision = getDivision();
 const allDistrict = getDistrict('dhaka');
-
+const allUpozila = getUpozila('dhaka', 'madaripur');
 ```
 
 ### TypeScript:
 
 ```
 // importing
-import { getDistrict, getDivision } from 'divisionbd';
+import { getDistrict, getDivision, getUpozila } from 'divisionbd';
 
 const allDivision = getDivision();
 const allDistrict = getDistrict('sylhet');
-
+const allUpozila = getUpozila('dhaka', 'madaripur');
 ```
 
-Divison name `dhaka` or `sylhet` can be Dhaka, DHAKA, sYlhet or ony other case it will work until the name is valid else it will return an empty array. Also throw an error if divisionName is not `string`
+`divisonName` and `districtName` for example `dhaka` or `sylhet` can be `Dhaka`, `DHAKA`, `sYlhet` or ony other case it will work until the name is valid else it will return an empty array. Also throw an error if `divisionName` and `districtName` is not `string`
 
 Outputs:
 
 ```
-//showing output 1:
+//Showing Output 1
 console.log(allDivision)
 
-// showing output 2
+// Showing Output 2
 console.log(allDistrict);
-)
 
+// Showing Output 3
+console.log(allUpozila);
 ```
 
-```
-output 1:
+Output 1:
 
+```
  [
   { name: 'Dhaka', banglaName: 'ঢাকা' },
   { name: 'Chattagram', banglaName: 'চট্টগ্রাম' },
@@ -70,9 +72,9 @@ output 1:
 ]
 ```
 
-```
-// output 2:
+Output 2:
 
+```
 [
   { name: 'Narsingdi', banglaName: 'নরসিংদী' },
   { name: 'Gazipur', banglaName: 'গাজীপুর' },
@@ -87,5 +89,16 @@ output 1:
   { name: 'Madaripur', banglaName: 'মাদারীপুর' },
   { name: 'Gopalganj', banglaName: 'গোপালগঞ্জ' },
   { name: 'Faridpur', banglaName: 'ফরিদপুর' }
+]
+```
+
+Output 3:
+
+```
+[
+  { name: 'Madaripur Sadar', banglaName: 'মাদারীপুর সদর' },
+  { name: 'Shibchar', banglaName: 'শিবচর' },
+  { name: 'Kalkini', banglaName: 'কালকিনি' },
+  { name: 'Rajoir', banglaName: 'রাজৈর' }
 ]
 ```
