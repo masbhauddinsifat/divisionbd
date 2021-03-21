@@ -102,3 +102,5 @@ Output 3:
   { name: 'Rajoir', banglaName: 'রাজৈর' }
 ]
 ```
+
+Also Added 3 Models for TypeScript support they are: `Division`, `District` and `Upozila`

@@ -1,6 +1,7 @@
 import { Division } from './model/division.model';
 import { country } from './country.data';
-import { District, DistrictWithUpozila } from './model/district.model';
+import { District } from './model/district.model';
+import { DistrictWithUpozila } from './model/districtWithUpozila.model';
 
 export const getDivision = (): Division[] => {
 	const divisions: Division[] = [];
@@ -63,3 +64,7 @@ const getDistrictWithUpozila = (
 		throw new Error('divisionName should be a string');
 	}
 };
+
+export * from './model/division.model';
+export * from './model/upozila.model';
+export * from './model/district.model';
